@@ -16,6 +16,9 @@ WORKDIR /app
 COPY . .
 WORKDIR /app/breakeven_frontend_web
 
+# Limit platforms to web ONLY
+RUN flutter create . --platforms=web
+
 # Install dependencies and build web
 RUN flutter pub get
 RUN flutter build web --release
