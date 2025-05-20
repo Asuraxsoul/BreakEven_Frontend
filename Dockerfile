@@ -11,13 +11,12 @@ ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
 # Enable web support
 RUN flutter config --enable-web
 
-# Set working directory to your Flutter subproject
+# Copy entire repo and set correct subdirectory
+WORKDIR /app
+COPY . .
 WORKDIR /app/breakeven_frontend_web
 
-# Copy only the Flutter app subdirectory
-COPY breakeven_frontend_web /app/breakeven_frontend_web
-
-# Get Flutter dependencies and build web
+# Install dependencies and build web
 RUN flutter pub get
 RUN flutter build web --release
 
