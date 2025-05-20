@@ -10,7 +10,6 @@ ENV PATH="/flutter/bin:/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
 # Enable web support
 RUN flutter config --enable-web
-RUN flutter doctor
 
 # Set working directory to your Flutter subproject
 WORKDIR /app/breakeven_frontend_web
